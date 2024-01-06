@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitSalmonAttack : MonoBehaviour
+public class UnitSalmonAttack : UnitAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ActiveAttack()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 3f);
+        foreach (var attackObj in attack)
+        {
+            attackObj.GetComponent<UnitMovement>().SetMoveable(false);
+            GetComponent<Rigidbody>().AddForce(transform.forward * -10);
+            attackObj.GetComponent<IDamageable>().OnDamaged(0, attackObj.gameObject, Vector3.zero);
+            attackObj.GetComponent<UnitMovement>().SetMoveable(true);
+        }
     }
 }
