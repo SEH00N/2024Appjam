@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56899211dc791244a9ad9af3b7c17397, type: 3}
-  m_Name: TestFish
+  m_Script: {fileID: 11500000, guid: 2936bbc7a6e5e414c87ae004b3de89cb, type: 3}
+  m_Name: XPTable
   m_EditorClassIdentifier: 
-  MaxHP:
-    baseValue: 100
-    Modifiers: []
-  Damage:
-    baseValue: 10
-    Modifiers: []
-  Speed:
-    baseValue: 1
-    Modifiers: []
+  table:
+  - 0
