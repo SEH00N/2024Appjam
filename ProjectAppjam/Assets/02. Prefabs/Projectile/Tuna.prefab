@@ -742,6 +742,7 @@ MonoBehaviour:
   particlePrefab: {fileID: 2047647054150346798, guid: 408e29e7bcfc1af4c8cf9f78f075e491,
     type: 3}
   speed: 40
+  Sprite: {fileID: 21300000, guid: fdc4f04ff3c595d43b40552deff7e73e, type: 3}
 --- !u!54 &6336050368368072023
 Rigidbody:
   m_ObjectHideFlags: 0
