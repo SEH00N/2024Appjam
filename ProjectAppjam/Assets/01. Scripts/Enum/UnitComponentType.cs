@@ -3,5 +3,7 @@ using UnityEngine;
 public enum UnitComponentType
 {
 	Movement,
-    Attack
+    Attack,
+    Animator,
+    Health
 }
