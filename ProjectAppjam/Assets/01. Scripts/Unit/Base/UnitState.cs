@@ -28,7 +28,11 @@ public abstract class UnitState : MonoBehaviour
     public virtual void UpdateState()
     {
         transitions.ForEach(t => {
-            if(t.MakeCondition())
+            bool condition = t.MakeCondition();
+            if(t.IsReverse)
+                condition = !condition;
+
+            if(condition)
                 controller.ChangeState(t.TargetStateType);
         });
     }

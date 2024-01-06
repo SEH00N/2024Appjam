@@ -15,6 +15,8 @@ public class UnitController : MonoBehaviour
     public UnitStateType CurrentStateType { get; private set; }
     public UnitState CurrentState => states[CurrentStateType];
 
+    [field : SerializeField]
+    public Transform Target { get; private set; }
     public bool IsDead = false;
 
     private void Awake()

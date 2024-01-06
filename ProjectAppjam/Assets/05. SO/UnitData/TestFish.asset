@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: TestFish
   MaxHP: 100
-  MoveSpeed: 5
+  MoveSpeed: 1
   RotateSpeed: 5
   AttackDamage: 10
   AttackDelay: 10
   AttackDistance: 10
-  SightDistance: 20
+  SightDistance: 0.1
   PatrolDelay: 1

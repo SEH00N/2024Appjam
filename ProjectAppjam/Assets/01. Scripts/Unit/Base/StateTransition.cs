@@ -3,10 +3,12 @@ using UnityEngine;
 public abstract class StateTransition : MonoBehaviour
 {
 	[field : SerializeField]
-	public UnitStateType TargetStateType {get; private set;}
+	public UnitStateType TargetStateType { get; private set; }
 
-	private UnitController controller;
-	private UnitState currentState;
+	public bool IsReverse;
+
+	protected UnitController controller;
+	protected UnitState currentState;
 
 	public virtual void Init(UnitController controller, UnitState state)
 	{
