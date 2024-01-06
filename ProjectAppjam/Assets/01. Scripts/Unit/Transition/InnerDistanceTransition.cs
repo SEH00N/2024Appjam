@@ -22,6 +22,9 @@ public class InnerDistanceTransition : StateTransition
         if(UnityEditor.Selection.activeGameObject != gameObject)
             return;
         
+        if(controller == null)
+            return;
+
         Color prevColor = Gizmos.color;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(controller.transform.position, distance);

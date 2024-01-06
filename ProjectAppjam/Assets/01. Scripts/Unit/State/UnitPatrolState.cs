@@ -12,7 +12,7 @@ public class UnitPatrolState : UnitState
     public override void Init(UnitController controller, UnitStateType stateType)
     {
         base.Init(controller, stateType);
-        movement = controller.GetUnitComponent<UnitMovement>();
+        movement = controller.GetUnitComponent<UnitMovement>(UnitComponentType.Movement);
 
         patrolDelay = controller.UnitData.PatrolDelay;
         sightDistance = controller.UnitData.SightDistance;
@@ -55,7 +55,10 @@ public class UnitPatrolState : UnitState
     {
         if(UnityEditor.Selection.activeGameObject != gameObject)
             return;
-        
+
+        if (controller == null)
+            return;
+
         Color prevColor = Gizmos.color;
         Gizmos.color = Color.red;
         Gizmos.DrawLine(controller.transform.position, targetPosition);

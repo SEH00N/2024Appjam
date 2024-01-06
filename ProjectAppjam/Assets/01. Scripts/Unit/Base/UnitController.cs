@@ -9,7 +9,7 @@ public class UnitController : MonoBehaviour
     public UnitDataSO UnitData => unitData;
 
     private Dictionary<UnitStateType, UnitState> states;
-    private Dictionary<string, UnitComponent> components;
+    private Dictionary<UnitComponentType, UnitComponent> components;
 
     [field:SerializeField]
     public UnitStateType CurrentStateType { get; private set; }
@@ -42,9 +42,9 @@ public class UnitController : MonoBehaviour
         CurrentState?.EnterState();
     }
 
-    public T GetUnitComponent<T>() where T : UnitComponent
+    public T GetUnitComponent<T>(UnitComponentType type) where T : UnitComponent
     {
-        return components[typeof(T).ToString()] as T;
+        return components[type] as T;
     }
 
     public UnitState GetUnitState(UnitStateType stateType)
@@ -54,14 +54,14 @@ public class UnitController : MonoBehaviour
 
     private void InitComponents()
     {
-        List<UnitComponent> components = new List<UnitComponent>();
-        transform.GetComponentsInChildren<UnitComponent>(components);
-
-        this.components = new Dictionary<string, UnitComponent>();
-        components.ForEach(compo => {
+        this.components = new Dictionary<UnitComponentType, UnitComponent>();
+        foreach(UnitComponentType type in Enum.GetValues(typeof(UnitComponentType)))
+        {
+            string typeName = $"Unit{type}";
+            UnitComponent compo = transform.GetComponent(typeName) as UnitComponent;
             compo.Init(this);
-            this.components.Add(compo.GetType().ToString(), compo);
-        });
+            this.components.Add(type, compo);
+        }
     }
 
     private void InitStates()
