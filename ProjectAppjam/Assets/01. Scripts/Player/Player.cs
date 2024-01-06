@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     void Move()
     {
         transform.Translate(horizontalMove * movementSpeed, 0, verticalMove * movementSpeed);
-        return;
+
         if (horizontalMove != 0 || verticalMove != 0) animator.SetBool("isSwimming", true);
         else animator.SetBool("isSwimming", false);
     }
