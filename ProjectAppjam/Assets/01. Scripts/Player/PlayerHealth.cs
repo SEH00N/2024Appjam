@@ -32,6 +32,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void Heal(float hp)
+    {
+        currentHP += hp;
+    }
+
     private void OnDie(GameObject performer)
     {
     }

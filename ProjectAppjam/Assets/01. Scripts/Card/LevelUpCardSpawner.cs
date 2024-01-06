@@ -6,11 +6,11 @@ public class LevelUpCardSpawner : MonoBehaviour
     [SerializeField] CardPanel cardPanel;
     [SerializeField] List<LevelUpCard> cards;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-            ShowCard();
-    }
+    // private void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.A))
+    //         ShowCard();
+    // }
 
     public void ShowCard()
     {

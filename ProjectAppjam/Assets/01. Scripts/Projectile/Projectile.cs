@@ -11,6 +11,11 @@ public abstract class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Update()
+    {
+        transform.Rotate(Vector3.one * Time.deltaTime * 360f);
+    }
+
 	public void SetDirection(Vector3 direction)
     {
         rb.velocity = direction * speed;

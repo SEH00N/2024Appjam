@@ -38,4 +38,13 @@ public class IngameManager : MonoBehaviour
             return playerSkill;
         }
     }
+
+    private PlayerHealth playerHealth = null;
+    public PlayerHealth PlayerHealth {
+        get {
+            if(playerHealth == null)
+                playerHealth = Player.GetComponent<PlayerHealth>();
+            return playerHealth;
+        }
+    }
 }

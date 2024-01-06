@@ -35,6 +35,7 @@ public class UnitHealth : UnitComponent, IDamageable
         if(performer != null) // 플레이어가 직접 죽였을 때만 삼켜지기
             IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
 
-        Destroy(gameObject, 1f);
+        IngameManager.Instance.PlayerStat.GetXP(10);
+        Destroy(gameObject, 0.5f);
     }
 }

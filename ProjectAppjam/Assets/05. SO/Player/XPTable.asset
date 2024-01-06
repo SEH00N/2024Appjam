@@ -13,4 +13,17 @@ MonoBehaviour:
   m_Name: XPTable
   m_EditorClassIdentifier: 
   table:
-  - 0
+  - 10
+  - 20
+  - 50
+  - 100
+  - 150
+  - 200
+  - 300
+  - 400
+  - 600
+  - 1000
+  - 1400
+  - 2000
+  - 2400
+  - 3000
