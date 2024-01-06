@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a7370b014cbe84e8152f7d439eda72, type: 3}
+  m_Name: Octopus
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 998157779959585061, guid: 5389503e9ab2beb42a640b34e877834b,
+    type: 3}
+  UnitName: Octopus
+  MaxHP: 100
+  MoveSpeed: 1
+  RotateSpeed: 5
+  AttackDamage: 10
+  AttackDelay: 10
+  AttackDistance: 10
+  SightDistance: 0.1
+  PatrolDelay: 1
