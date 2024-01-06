@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         if(onAttacking)
             return;
 
-        transform.Translate(horizontalMove * movementSpeed, 0, verticalMove * movementSpeed);
+        transform.Translate(horizontalMove * movementSpeed * Time.deltaTime, 0, verticalMove * movementSpeed * Time.deltaTime);
 
         if (horizontalMove != 0 || verticalMove != 0) 
             animator.SetMovement(true);

@@ -807,37 +807,6 @@ MonoBehaviour:
   - {fileID: 5385247782026103667, guid: bd76fe666c99ada459dd176671e48f30, type: 3}
   - {fileID: 8626437937123856210, guid: 8651175c93122b844b988d5f24a02be6, type: 3}
   playerTrm: {fileID: 1066037377}
---- !u!1 &1475231598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1475231600}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1475231600
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475231598}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5323974, z: -0.64501977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615168368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1108,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4063023139946000779, guid: 287507c3a42bebb4e924d203d807d76c,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063023139946000779, guid: 287507c3a42bebb4e924d203d807d76c,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1162,6 +1141,5 @@ SceneRoots:
   - {fileID: 1615168370}
   - {fileID: 170936185}
   - {fileID: 4054040590065746024}
-  - {fileID: 1475231600}
   - {fileID: 607993528}
   - {fileID: 1116366765}

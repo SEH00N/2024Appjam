@@ -245,6 +245,78 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: -0.000029927585, z: 0.009756686}
     m_Extent: {x: 0.008495761, y: 0.0073032095, z: 0.009354835}
   m_DirtyAABB: 0
+--- !u!1 &670611110785938424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688938046355256418}
+  - component: {fileID: 2067354279732214443}
+  - component: {fileID: 1387582843894796436}
+  - component: {fileID: 6494322329701397485}
+  m_Layer: 0
+  m_Name: HitFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688938046355256418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670611110785938424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4730386788531954152}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2067354279732214443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670611110785938424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f102254ba7a9240888667a659a5218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1387582843894796436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670611110785938424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b8c15cca81aaf45b19c4523a229945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6494322329701397485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670611110785938424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a0343705f5b414d88f672aca13b22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4166867506092318004, guid: 3ad3282c68179c145a370e1a35cb3be7, type: 3}
+  trm: {fileID: 4730386788531954152}
 --- !u!1 &815291394259099836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1518,7 @@ GameObject:
   - component: {fileID: 5375204101119400087}
   - component: {fileID: 419038714843943190}
   - component: {fileID: 4576674418160983845}
+  - component: {fileID: -459468260488280453}
   m_Layer: 0
   m_Name: Jellyfish
   m_TagString: Untagged
@@ -1468,6 +1541,7 @@ Transform:
   m_Children:
   - {fileID: 5142969281171809257}
   - {fileID: 2814728239152171705}
+  - {fileID: 1688938046355256418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5543796741259437997
@@ -1484,7 +1558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: 51e3fabce5937b74fbe1c7f5c9657f5d, type: 2}
   <CurrentStateType>k__BackingField: 0
-  <Target>k__BackingField: {fileID: 0}
+  Target: {fileID: 0}
   IsDead: 0
 --- !u!114 &7014580548109192373
 MonoBehaviour:
@@ -1524,7 +1598,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnDamagedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1387582843894796436}
+        m_TargetAssemblyTypeName: Base.Feedback.FeedbackHandler, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1547,8 +1633,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.57690364, y: 0.65623415, z: 0.55888176}
+  m_Center: {x: 0.000000029802322, y: 0.4142819, z: 0.0035009384}
+--- !u!54 &-459468260488280453
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174376916881041738}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8436667968547398694
 GameObject:
   m_ObjectHideFlags: 0

@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 1172835617315234656}
   - component: {fileID: 1720132018578560167}
   - component: {fileID: 6336050368368072023}
+  - component: {fileID: 3116863802265780787}
   m_Layer: 0
   m_Name: Tuna
   m_TagString: Untagged
@@ -734,7 +735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756c6079cb38d624d8138c98813084cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  particlePrefab: {fileID: 2047647054150346798, guid: 408e29e7bcfc1af4c8cf9f78f075e491,
+    type: 3}
+  speed: 40
 --- !u!54 &6336050368368072023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -762,6 +765,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &3116863802265780787
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516666278738463069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.95
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &7672271017006806020
 GameObject:
   m_ObjectHideFlags: 0

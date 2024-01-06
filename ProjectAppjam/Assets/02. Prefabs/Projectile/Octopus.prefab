@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 3580919735841636667}
   - component: {fileID: 998157779959585061}
   - component: {fileID: -511955271025126457}
+  - component: {fileID: 446102577865421749}
   m_Layer: 0
   m_Name: Octopus
   m_TagString: Untagged
@@ -601,7 +602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b4af2f8af491749afb2a51652326ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  particlePrefab: {fileID: 2047647054150346798, guid: 408e29e7bcfc1af4c8cf9f78f075e491,
+    type: 3}
+  speed: 40
 --- !u!54 &-511955271025126457
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -629,6 +632,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &446102577865421749
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797192970512943067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.45, z: 0}
 --- !u!1 &3934870871111684623
 GameObject:
   m_ObjectHideFlags: 0

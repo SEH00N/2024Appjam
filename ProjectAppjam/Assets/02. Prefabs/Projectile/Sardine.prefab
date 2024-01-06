@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 7959729217982320414}
   - component: {fileID: 1868885214227363146}
   - component: {fileID: 3364931130505506953}
+  - component: {fileID: 4291197137505427971}
   m_Layer: 0
   m_Name: Sardine
   m_TagString: Untagged
@@ -355,7 +356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b774c3be8f7fbd348b64517d0bc40d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  particlePrefab: {fileID: 2047647054150346798, guid: 408e29e7bcfc1af4c8cf9f78f075e491,
+    type: 3}
+  speed: 40
 --- !u!54 &3364931130505506953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -383,6 +386,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &4291197137505427971
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336778310887024625}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Height: 0.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.2, z: -0.05}
 --- !u!1 &4124030379331104788
 GameObject:
   m_ObjectHideFlags: 0
