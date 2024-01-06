@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitMovement : UnitComponent
@@ -11,6 +12,8 @@ public class UnitMovement : UnitComponent
 
     private bool isArrived = false;
 
+    private bool canMove = false;
+
     public override void Init(UnitController controller)
     {
         base.Init(controller);
@@ -21,6 +24,9 @@ public class UnitMovement : UnitComponent
 
     private void FixedUpdate()
     {
+        if(canMove == false)
+            return;
+
         if(isArrived)
             return;
         
@@ -39,14 +45,16 @@ public class UnitMovement : UnitComponent
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
     }
 
-    public void SetTargetPosition(Vector3 pos)
+    public void SetTargetPosition(Vector3 pos, bool rotate = true)
     {
         targetPosition = pos;
 
         Vector3 dir = targetPosition - transform.position;
         moveDir = dir.normalized;
 
-        targetRotation = Quaternion.LookRotation(moveDir);
+        if(rotate)
+            targetRotation = Quaternion.LookRotation(moveDir);
+
         isArrived = (dir.sqrMagnitude < 0.1f);
     }
 
@@ -59,5 +67,10 @@ public class UnitMovement : UnitComponent
     public void StopImmediately()
     {
         MoveImmediately(transform.position);
+    }
+
+    public void SetMoveable(bool value)
+    {
+        canMove = value;
     }
 }

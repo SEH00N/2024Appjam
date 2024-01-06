@@ -12,12 +12,30 @@ public class IngameManager : MonoBehaviour
         }
     }
 
+    private Player player = null;
+    public Player Player {
+        get {
+            if(player == null)
+                player = GameObject.Find("Player").GetComponent<Player>();
+            return player;
+        }
+    }
+
     private PlayerStat playerStat = null;
     public PlayerStat PlayerStat {
         get {
             if(playerStat == null)
-                playerStat = GameObject.Find("Player").GetComponent<PlayerStat>();
+                playerStat = Player.GetComponent<PlayerStat>();
             return playerStat;
+        }
+    }
+
+    private PlayerSkill playerSkill = null;
+    public PlayerSkill PlayerSkill {
+        get {
+            if(playerSkill == null)
+                playerSkill = Player.GetComponent<PlayerSkill>();
+            return playerSkill;
         }
     }
 }

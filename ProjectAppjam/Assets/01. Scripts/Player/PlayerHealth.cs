@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnitHealth : UnitComponent, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] float maxHP = 100;
     private float currentHP = 0f;
 
     public UnityEvent<GameObject, Vector3> OnDamagedEvent;
     public UnityEvent<GameObject> OnDeadEvent;
 
-    public override void Init(UnitController controller)
+    public bool IsDead;
+
+    private void Awake()
     {
-        base.Init(controller);
-        currentHP = controller.UnitData.MaxHP;
+        currentHP = maxHP;
     }
 
     public void OnDamaged(int damage = 0, GameObject performer = null, Vector3 point = default)
     {
-        if(controller.IsDead)
+        if(IsDead)
             return;
 
         currentHP -= damage;
@@ -26,15 +28,11 @@ public class UnitHealth : UnitComponent, IDamageable
         {
             OnDeadEvent?.Invoke(performer);
             OnDie(performer);
-            controller.IsDead = true;
+            IsDead = true;
         }
     }
 
     private void OnDie(GameObject performer)
     {
-        if(performer != null) // 플레이어가 직접 죽였을 때만 삼켜지기
-            IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
-
-        Destroy(gameObject, 1f);
     }
 }

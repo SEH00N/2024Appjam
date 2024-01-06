@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Transform attackPosition;
+
     public float horizontalMove;
     public float verticalMove;
     public float attackDelay;
@@ -21,13 +23,15 @@ public class Player : MonoBehaviour
 
     public int damage;
 
+    private bool onAttacking = false;
+
     Rigidbody rigidbody;
-    Animator animator;
+    private PlayerAnimator animator;    
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = transform.Find("Visual").GetComponent<PlayerAnimator>();
     }
 
     void Update()
@@ -51,25 +55,46 @@ public class Player : MonoBehaviour
 
     void Move()
     {
+        if(onAttacking)
+            return;
+
         transform.Translate(horizontalMove * movementSpeed, 0, verticalMove * movementSpeed);
-        if (horizontalMove != 0 || verticalMove != 0) animator.SetBool("isSwimming", true);
-        else animator.SetBool("isSwimming", false);
+
+        if (horizontalMove != 0 || verticalMove != 0) 
+            animator.SetMovement(true);
+        else
+            animator.SetMovement(false);
     }
 
     void Attack()
     {
         if (isAttack && isAttackReady)
         {
+            onAttacking = true;
             isAttackReady = false;
-            animator.SetTrigger("doAttack");
-            Collider[] hit = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), attackRange);
-            foreach (var hitObject in hit)
-            {
-                if (hitObject.gameObject.GetComponent<IDamageable>() is null) continue;
-                hitObject.gameObject.GetComponent<IDamageable>().OnDamaged(damage, hitObject.gameObject, new Vector3(0, 0, 0));
-            }
+            animator.SetMovement(false);
+            animator.SetAttack(true);
+
+            StartCoroutine(DelayCoroutine(0.6f, () => {
+                onAttacking = false;
+                animator.SetAttack(false);
+             
+                Collider[] hit = Physics.OverlapSphere(attackPosition.position, attackRange);
+                foreach (var hitObject in hit)
+                {
+                    if (hitObject.gameObject.GetComponent<IDamageable>() is null) continue;
+                    hitObject.gameObject.GetComponent<IDamageable>().OnDamaged(damage, hitObject.gameObject, new Vector3(0, 0, 0));
+                }
+            }));
+
             StartCoroutine(AttackDelay());
         }
+    }
+
+    private IEnumerator DelayCoroutine(float delay, Action callback)
+    {
+        yield return new WaitForSeconds(delay);
+        callback?.Invoke();
     }
 
     IEnumerator AttackDelay()
