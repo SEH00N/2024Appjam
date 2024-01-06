@@ -45,6 +45,11 @@ public class UnitController : MonoBehaviour
         return components[typeof(T).ToString()] as T;
     }
 
+    public UnitState GetUnitState(UnitStateType stateType)
+    {
+        return states[stateType];
+    }
+
     private void InitComponents()
     {
         List<UnitComponent> components = new List<UnitComponent>();
