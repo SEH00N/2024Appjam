@@ -9,7 +9,6 @@ public class InnerDistanceTransition : StateTransition
     {
         base.Init(controller, state);
         target = controller.Target;
-        Debug.Log(target);
     }
 
     public override bool MakeCondition()

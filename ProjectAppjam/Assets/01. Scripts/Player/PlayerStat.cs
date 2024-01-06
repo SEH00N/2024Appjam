@@ -16,7 +16,8 @@ public class PlayerStat : MonoBehaviour
 
     private void Awake()
     {
-        Stat = Instantiate(Stat);
+        Stat = ScriptableObject.Instantiate(Stat);
+        Stat.Init();
         Stat.SetOwner(this);
     }
 

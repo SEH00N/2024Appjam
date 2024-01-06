@@ -23,10 +23,10 @@ public class CardPanel : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        gameObject.SetActive(false);
-
         foreach(Transform child in cardParent)
-            Destroy(child);
+            Destroy(child.gameObject);
+
+        gameObject.SetActive(false);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

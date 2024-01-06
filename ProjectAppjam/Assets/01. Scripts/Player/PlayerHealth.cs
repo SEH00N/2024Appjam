@@ -3,20 +3,26 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] float maxHP = 100;
     private float currentHP = 0f;
 
     public UnityEvent<GameObject, Vector3> OnDamagedEvent;
     public UnityEvent<GameObject> OnDeadEvent;
 
+    private PlayerStat stat;
+
     public bool IsDead;
 
     private void Awake()
     {
-        currentHP = maxHP;
+        stat = GetComponent<PlayerStat>();
     }
 
-    public void OnDamaged(int damage = 0, GameObject performer = null, Vector3 point = default)
+    private void Start()
+    {
+        currentHP = stat.Stat.GetStat(StatType.MaxHP).GetValue();
+    }
+
+    public void OnDamaged(float damage = 0, GameObject performer = null, Vector3 point = default)
     {
         if(IsDead)
             return;

@@ -15,13 +15,11 @@ public abstract class Projectile : MonoBehaviour
     private void Update()
     {
         transform.Rotate(Vector3.one * Time.deltaTime * 720f * 2f);
-        Debug.Log(rb.velocity);
     }
 
 	public void SetDirection(Vector3 direction)
     {
         rb.velocity = direction * speed;
-        Debug.Log(rb.velocity);
     }
 
     protected virtual void OnCollisionEnter(Collision other)

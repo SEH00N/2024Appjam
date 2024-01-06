@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public LayerMask targetLayer;
     public Transform attackPosition;
 
+    private PlayerStat stat;
+
     public float horizontalMove;
     public float verticalMove;
     public float attackDelay;
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        stat = GetComponent<PlayerStat>();
         animator = transform.Find("Visual").GetComponent<PlayerAnimator>();
 
         Cursor.visible = false;
@@ -61,8 +64,8 @@ public class Player : MonoBehaviour
     {
         if(onAttacking)
             return;
-
-        transform.Translate(horizontalMove * movementSpeed * Time.fixedDeltaTime, 0, verticalMove * movementSpeed * Time.fixedDeltaTime);
+        float speed = stat.Stat.GetStat(StatType.Speed).GetValue() * Time.fixedDeltaTime;
+        transform.Translate(horizontalMove * speed, 0, verticalMove * speed);
 
         if (horizontalMove != 0 || verticalMove != 0) 
             animator.SetMovement(true);
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour
                 foreach (var hitObject in hit)
                 {
                     if (hitObject.gameObject.GetComponent<IDamageable>() is null) continue;
+                    float damage = stat.Stat.GetStat(StatType.Damage).GetValue();
                     hitObject.gameObject.GetComponent<IDamageable>().OnDamaged(damage, hitObject.gameObject, new Vector3(0, 0, 0));
                 }
             }));

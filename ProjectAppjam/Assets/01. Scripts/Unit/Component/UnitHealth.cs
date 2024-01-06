@@ -14,7 +14,7 @@ public class UnitHealth : UnitComponent, IDamageable
         currentHP = controller.UnitData.MaxHP;
     }
 
-    public void OnDamaged(int damage = 0, GameObject performer = null, Vector3 point = default)
+    public void OnDamaged(float damage = 0, GameObject performer = null, Vector3 point = default)
     {
         if(controller.IsDead)
             return;

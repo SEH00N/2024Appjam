@@ -36,7 +36,7 @@ public class CameraManager : MonoBehaviour
     
     private void Awake()
     {
-        perlin = mainVCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        perlin = MainVCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     private void Start()

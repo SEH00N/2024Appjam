@@ -16,21 +16,26 @@ public class PlayerStatSO : ScriptableObject
     private PlayerStat owner;
 
     public void SetOwner(PlayerStat owner) => this.owner = owner;
-    public Stat GetStat(StatType type) => fieldInfoMap[type].GetValue(this) as Stat;
+    public Stat GetStat(StatType type)
+    {
+        return fieldInfoMap[type]?.GetValue(this) as Stat;
+    }
     public void IncreaseStat(StatType statType, float modifyValue, float duration = 0f)
         => owner.StartCoroutine(StatModifyCoroutine(statType, modifyValue, duration));
 
-    private void OnEnable()
+    public void Init()
     {
         if(fieldInfoMap == null)
             fieldInfoMap = new Dictionary<StatType, FieldInfo>();
 
         fieldInfoMap.Clear();
+        Debug.Log(fieldInfoMap);
 
-        Type statType = typeof(PlayerStatSO);
+        Type stat = typeof(PlayerStatSO);
         foreach(StatType t in Enum.GetValues(typeof(StatType)))
         {
-            FieldInfo statField = statType.GetField(statType.ToString());
+            FieldInfo statField = stat.GetField(t.ToString());
+            Debug.Log(stat.ToString());
             fieldInfoMap.Add(t, statField);
         }
     }
