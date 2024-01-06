@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 0
   IsReverse: 1
-  distance: 5
+  distance: 30
 --- !u!1 &108298326380635263
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 3
   IsReverse: 0
-  distance: 2
+  distance: 5
 --- !u!1 &1485104369395998968
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +817,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  particlePrefab: {fileID: 0}
   ShakeAmount: 0
 --- !u!114 &4564973527967579703
 MonoBehaviour:
@@ -1631,7 +1632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 2
   IsReverse: 0
-  distance: 5
+  distance: 30
 --- !u!1 &8011517835927430875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 0
   IsReverse: 1
-  distance: 2
+  distance: 5
 --- !u!1 &9011790655697670184
 GameObject:
   m_ObjectHideFlags: 0

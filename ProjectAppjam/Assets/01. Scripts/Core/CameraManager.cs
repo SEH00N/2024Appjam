@@ -52,7 +52,7 @@ public class CameraManager : MonoBehaviour
         onShake = true;
         perlin.m_AmplitudeGain = power;
         perlin.m_FrequencyGain = frequency;
-
+        Debug.Log($"{duration} {power} {frequency}");
         StartCoroutine(PerlinResetCoroutine(duration));
     }
 

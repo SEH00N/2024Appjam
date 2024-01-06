@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        DontDestroyOnLoad(gameObject);
         instance = this;
+
+        SceneLoader.Instance = new SceneLoader();
     }
 }

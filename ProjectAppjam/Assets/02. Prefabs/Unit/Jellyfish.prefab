@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 0
   IsReverse: 1
-  distance: 2
+  distance: 5
 --- !u!1 &914449771841296770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 3
   IsReverse: 0
-  distance: 2
+  distance: 5
 --- !u!1 &4693191302713572593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 0
   IsReverse: 1
-  distance: 5
+  distance: 30
 --- !u!1 &5990919575810639164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetStateType>k__BackingField: 2
   IsReverse: 0
-  distance: 5
+  distance: 30
 --- !u!1 &8174376916881041738
 GameObject:
   m_ObjectHideFlags: 0
