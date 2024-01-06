@@ -4,6 +4,7 @@ public abstract class Projectile : MonoBehaviour
 {
     [SerializeField] ParticleSystem particlePrefab;
     [SerializeField] protected float speed;
+    public Sprite Sprite;
     protected Rigidbody rb;
 
     private void Awake()
@@ -25,8 +26,8 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision other)
     {
-        OnCollision(other);
         Instantiate(particlePrefab, transform.position, Quaternion.identity).Play();
+        OnCollision(other);
         Destroy(gameObject);
     }
 
