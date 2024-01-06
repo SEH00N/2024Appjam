@@ -45,14 +45,16 @@ public class UnitMovement : UnitComponent
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
     }
 
-    public void SetTargetPosition(Vector3 pos)
+    public void SetTargetPosition(Vector3 pos, bool rotate = true)
     {
         targetPosition = pos;
 
         Vector3 dir = targetPosition - transform.position;
         moveDir = dir.normalized;
 
-        targetRotation = Quaternion.LookRotation(moveDir);
+        if(rotate)
+            targetRotation = Quaternion.LookRotation(moveDir);
+
         isArrived = (dir.sqrMagnitude < 0.1f);
     }
 
