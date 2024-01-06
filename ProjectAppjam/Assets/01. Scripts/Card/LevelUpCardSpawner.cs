@@ -20,18 +20,12 @@ public class LevelUpCardSpawner : MonoBehaviour
         cardPanel.Show();
     }
 
-    public void RemoveCard(int index)
-    {
-        cards.RemoveAt(index);
-    }
-
     private LevelUpCard SpawnCard()
     {
         int index = Random.Range(0, cards.Count);
         LevelUpCard card = Instantiate(cards[index]);
         card.index = index;
         card.OnSelectedEvent.AddListener((i) => {
-            RemoveCard(card.index);
             cardPanel.Hide();
         });
 

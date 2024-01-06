@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerSkill : MonoBehaviour
 {
     [SerializeField] Transform firePos;
+    [SerializeField] Image fishImage;
     private Queue<Projectile> proejctiles = new Queue<Projectile>();
 
     public void StoreProjectile(Projectile p)
@@ -19,7 +20,7 @@ public class PlayerSkill : MonoBehaviour
                 return;
 
             Projectile projectile = Instantiate(proejctiles.Dequeue(), firePos.position, Quaternion.identity);
-            projectile.SetDirection(transform.forward);
+            projectile.SetDirection(CameraManager.Instance.MainCam.transform.forward);
         }
     }
 }

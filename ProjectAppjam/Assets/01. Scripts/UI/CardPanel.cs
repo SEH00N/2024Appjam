@@ -14,6 +14,9 @@ public class CardPanel : MonoBehaviour
         Time.timeScale = 0;
 
         gameObject.SetActive(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Hide()
@@ -22,7 +25,10 @@ public class CardPanel : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        foreach(Transform child in transform)
+        foreach(Transform child in cardParent)
             Destroy(child);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

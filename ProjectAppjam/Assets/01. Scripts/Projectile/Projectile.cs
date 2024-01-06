@@ -13,18 +13,21 @@ public abstract class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(Vector3.one * Time.deltaTime * 360f);
+        transform.Rotate(Vector3.one * Time.deltaTime * 720f * 2f);
+        Debug.Log(rb.velocity);
     }
 
 	public void SetDirection(Vector3 direction)
     {
         rb.velocity = direction * speed;
+        Debug.Log(rb.velocity);
     }
 
     protected virtual void OnCollisionEnter(Collision other)
     {
         OnCollision(other);
-        Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        Instantiate(particlePrefab, transform.position, Quaternion.identity).Play();
+        Destroy(gameObject);
     }
 
     protected abstract void OnCollision(Collision other);

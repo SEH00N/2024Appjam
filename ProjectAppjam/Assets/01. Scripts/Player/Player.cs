@@ -33,9 +33,12 @@ public class Player : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = transform.Find("Visual").GetComponent<PlayerAnimator>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GetInput();
         Move();
@@ -59,7 +62,7 @@ public class Player : MonoBehaviour
         if(onAttacking)
             return;
 
-        transform.Translate(horizontalMove * movementSpeed * Time.deltaTime, 0, verticalMove * movementSpeed * Time.deltaTime);
+        transform.Translate(horizontalMove * movementSpeed * Time.fixedDeltaTime, 0, verticalMove * movementSpeed * Time.fixedDeltaTime);
 
         if (horizontalMove != 0 || verticalMove != 0) 
             animator.SetMovement(true);
@@ -133,9 +136,6 @@ public class Player : MonoBehaviour
 
     void Turn()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
         yRotateMove += transform.eulerAngles.y;
         xRotateMove += transform.eulerAngles.x;
 
