@@ -814,6 +814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf29b364dbebc44980d472dff2e832a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
   ShakeAmount: 0
 --- !u!114 &4564973527967579703
 MonoBehaviour:
