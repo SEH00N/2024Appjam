@@ -24,8 +24,8 @@ public class UnitHealth : UnitComponent, IDamageable
 
         if (currentHP <= 0f)
         {
-            OnDie(performer);
             OnDeadEvent?.Invoke(performer);
+            OnDie(performer);
             controller.IsDead = true;
         }
     }
@@ -33,5 +33,6 @@ public class UnitHealth : UnitComponent, IDamageable
     private void OnDie(GameObject performer)
     {
         IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
+        Destroy(gameObject, 1f);
     }
 }

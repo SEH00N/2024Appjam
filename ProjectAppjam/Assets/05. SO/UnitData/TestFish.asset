@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a7370b014cbe84e8152f7d439eda72, type: 3}
   m_Name: TestFish
   m_EditorClassIdentifier: 
+  projectile: {fileID: 6550610805229945844, guid: e9095c6019970c1408ff7d40c1172a3f,
+    type: 3}
   UnitName: TestFish
   MaxHP: 100
   MoveSpeed: 1
