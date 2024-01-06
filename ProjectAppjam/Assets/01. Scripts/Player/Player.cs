@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
             animator.SetMovement(false);
             animator.SetAttack(true);
 
-            StartCoroutine(DelayCoroutine(0.6f, () => {
+            StartCoroutine(DelayCoroutine(0.45f, () => {
                 onAttacking = false;
                 animator.SetAttack(false);
              
