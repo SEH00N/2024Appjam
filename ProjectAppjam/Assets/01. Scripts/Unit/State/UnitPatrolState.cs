@@ -32,6 +32,7 @@ public class UnitPatrolState : UnitState
         if(isStopped == false && (targetPosition - controller.transform.position).sqrMagnitude < 0.5f)
         {
             isStopped = true;
+            controller.Ainmator.SetMove(false);
             movement.StopImmediately();
             controller.DelayCallback(patrolDelay, DoPatrol);
         }
@@ -40,6 +41,7 @@ public class UnitPatrolState : UnitState
     public override void ExitState()
     {
         base.ExitState();
+        controller.Ainmator.SetMove(false);
         movement.StopImmediately();
     }
 
@@ -47,6 +49,7 @@ public class UnitPatrolState : UnitState
     {
         targetPosition = controller.transform.position + Random.insideUnitSphere * sightDistance;
         movement.SetTargetPosition(targetPosition);
+        controller.Ainmator.SetMove(true);
         isStopped = false;
     }
 

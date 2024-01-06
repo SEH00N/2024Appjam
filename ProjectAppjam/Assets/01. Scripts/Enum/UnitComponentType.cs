@@ -4,6 +4,6 @@ public enum UnitComponentType
 {
 	Movement,
     Attack,
-    Animator,
+    // Animator,
     Health
 }
