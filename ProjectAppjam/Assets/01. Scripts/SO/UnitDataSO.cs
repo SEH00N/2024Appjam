@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/UnitData")]
 public class UnitDataSO : ScriptableObject
 {
+    public Projectile projectile;
     public string UnitName;
 
 	public float MaxHP;

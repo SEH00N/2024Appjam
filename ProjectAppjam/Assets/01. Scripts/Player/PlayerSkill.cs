@@ -6,6 +6,11 @@ public class PlayerSkill : MonoBehaviour
     [SerializeField] Transform firePos;
     private Queue<Projectile> proejctiles = new Queue<Projectile>();
 
+    public void StoreProjectile(Projectile p)
+    {
+        proejctiles.Enqueue(p);
+    }
+
 	private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse1))
