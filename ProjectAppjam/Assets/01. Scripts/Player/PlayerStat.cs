@@ -28,7 +28,7 @@ public class PlayerStat : MonoBehaviour
         if(xp >= xpTable.table[currentLevel])
         {
             currentLevel++;
-            StartCoroutine(DelayCoroutine(0.5f, () => {
+            StartCoroutine(DelayCoroutine(0.25f, () => {
                 OnLevelUpEvent?.Invoke(currentLevel);
             }));
 

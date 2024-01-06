@@ -36,6 +36,6 @@ public class UnitHealth : UnitComponent, IDamageable
             IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
 
         IngameManager.Instance.PlayerStat.GetXP(10);
-        Destroy(gameObject, 0.5f);
+        // Destroy(gameObject, 0.5f);
     }
 }

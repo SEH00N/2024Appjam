@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerStat
   m_EditorClassIdentifier: 
   MaxHP:
-    baseValue: 0
+    baseValue: 100
     Modifiers: []
   Damage:
-    baseValue: 0
+    baseValue: 50
     Modifiers: []
   Speed:
-    baseValue: 0
+    baseValue: 4
     Modifiers: []
