@@ -6,7 +6,7 @@ public class UnitMeleeAttack : UnitAttack
 
     public override void ActiveAttack()
     {
-        Collider[] attackObj =  Physics.OverlapSphere(Vector3.zero, 1);
+        Collider[] attackObj =  Physics.OverlapSphere(Vector3.zero, 1, targetLayer);
         foreach(var attack in attackObj)
         {
             if (attack.gameObject.tag != "Player") continue;

@@ -6,7 +6,7 @@ public class UnitSardineAttack : UnitAttack
 {
     public override void ActiveAttack()
     {
-        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 2f);
+        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 2f, targetLayer);
         foreach(var attackObj in attack)
         {
             if (attackObj.CompareTag("Player"))

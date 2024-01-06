@@ -27,7 +27,7 @@ public class UnitOctopusAttack : UnitAttack
     public override void ActiveAttack()
     {
         initialPosition = new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z);
-        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 3f);
+        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 3f, targetLayer);
         foreach (var attackObj in attack)
         {
             attackObj.GetComponent<IDamageable>().OnDamaged(0, attackObj.gameObject, Vector3.zero);

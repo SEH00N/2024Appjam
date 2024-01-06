@@ -1669,7 +1669,7 @@ GameObject:
   - component: {fileID: 8707946947074965536}
   - component: {fileID: 340200349999117180}
   - component: {fileID: -6114588302914307431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Prawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

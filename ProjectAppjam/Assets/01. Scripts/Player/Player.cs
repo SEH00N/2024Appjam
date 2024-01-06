@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public LayerMask targetLayer;
     public Transform attackPosition;
 
     public float horizontalMove;
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
         if (isInteract)
         {
             GameObject nearObject = null;
-            Collider[] interact = Physics.OverlapBox(transform.position, new Vector3(interactRange, interactRange, interactRange));
+            Collider[] interact = Physics.OverlapBox(transform.position, new Vector3(interactRange, interactRange, interactRange), Quaternion.identity, targetLayer);
             foreach (var interactObject in interact)
             {
                 if (interactObject.gameObject.GetComponent<IInteractable>() is null) continue;

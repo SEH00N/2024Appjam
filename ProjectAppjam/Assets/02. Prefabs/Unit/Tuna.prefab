@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 8240408915492311348}
   - component: {fileID: 8518382609152832875}
   - component: {fileID: -2892510749235441889}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tuna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
