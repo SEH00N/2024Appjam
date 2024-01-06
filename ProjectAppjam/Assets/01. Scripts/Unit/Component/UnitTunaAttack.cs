@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitTunaAttack : MonoBehaviour
+public class UnitTunaAttack : UnitAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ActiveAttack()
     {
-        
+        Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z), 2f);
+        foreach (var attackObj in attack)
+        {
+            if (attackObj.CompareTag("Player"))
+            {
+                attackObj.GetComponent<IDamageable>().OnDamaged(20, attackObj.gameObject, Vector3.zero);
+                StartCoroutine(Bleeding(attackObj));
+                StartCoroutine(Bleeding(attackObj));
+                StartCoroutine(Bleeding(attackObj));
+                StartCoroutine(Bleeding(attackObj));
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Bleeding(Collider attackObj)
     {
-        
+        attackObj.GetComponent<IDamageable>().OnDamaged(5, attackObj.gameObject, Vector3.zero);
+        yield return new WaitForSeconds(1f);
     }
 }
