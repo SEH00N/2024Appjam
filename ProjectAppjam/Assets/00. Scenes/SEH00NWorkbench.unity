@@ -613,6 +613,55 @@ MonoBehaviour:
   <TargetStateType>k__BackingField: 2
   IsReverse: 0
   distance: 5
+--- !u!1 &1280639771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280639773}
+  - component: {fileID: 1280639772}
+  m_Layer: 0
+  m_Name: TestPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1280639772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280639771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bdc61a896ee914e81d0095e10805fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stat: {fileID: 11400000, guid: d05260904cf73414fb21d3423584614f, type: 2}
+  xpTable: {fileID: 11400000, guid: f9932fd7ca23a6042bc01796ccb97de1, type: 2}
+  OnLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1280639773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280639771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.458935, y: -0.50690377, z: 12.434851}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320765009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,3 +1145,4 @@ SceneRoots:
   - {fileID: 1529021112}
   - {fileID: 2111977262}
   - {fileID: 372631190}
+  - {fileID: 1280639773}
