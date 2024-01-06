@@ -4,11 +4,14 @@ using UnityEngine.Events;
 
 public class LevelUpCard : MonoBehaviour
 {
-	[SerializeField] List<StatData> cardStats;
+	[SerializeField] List<StatData> cardStats = new List<StatData>();
     public UnityEvent<PlayerStat> OnSelectedEvent;
 
-    public void Select(PlayerStat stat)
+    public int index;
+
+    public void Select()
     {
+        PlayerStat stat = IngameManager.Instance.PlayerStat;
         cardStats.ForEach(s => stat.Stat.IncreaseStat(s.type, s.value));
         OnSelectedEvent?.Invoke(stat);
     }

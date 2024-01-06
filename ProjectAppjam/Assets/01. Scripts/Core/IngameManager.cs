@@ -11,4 +11,13 @@ public class IngameManager : MonoBehaviour
             return instance;
         }
     }
+
+    private PlayerStat playerStat = null;
+    public PlayerStat PlayerStat {
+        get {
+            if(playerStat == null)
+                playerStat = GameObject.Find("Player").GetComponent<PlayerStat>();
+            return playerStat;
+        }
+    }
 }
