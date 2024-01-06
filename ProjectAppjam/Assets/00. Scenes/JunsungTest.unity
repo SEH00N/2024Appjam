@@ -921,10 +921,15 @@ MonoBehaviour:
   horizontalMove: 0
   verticalMove: 0
   attackDelay: 1
+  attackRange: 2
+  interactRange: 2
+  xRotateMove: 0
+  yRotateMove: 0
+  movementSpeed: 0.1
   isAttack: 0
   isAttackReady: 1
   isInteract: 0
-  damage: 0
+  damage: 2
 --- !u!135 &2126970934
 SphereCollider:
   m_ObjectHideFlags: 0
