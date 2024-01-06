@@ -13,12 +13,22 @@ public class Player : MonoBehaviour
     public float xRotateMove;
     public float yRotateMove;
     public float movementSpeed;
+    public float rotateSpeed;
 
     public bool isAttack;
     public bool isAttackReady;
     public bool isInteract;
 
     public int damage;
+
+    Rigidbody rigidbody;
+    Animator animator;
+
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -35,13 +45,15 @@ public class Player : MonoBehaviour
         verticalMove = Input.GetAxisRaw("Vertical");
         isAttack = Input.GetKey(KeyCode.Mouse0);
         isInteract = Input.GetKeyDown(KeyCode.F);
-        xRotateMove = -Input.GetAxis("Mouse Y");
-        yRotateMove = Input.GetAxis("Mouse X");
+        xRotateMove = -Input.GetAxis("Mouse Y") * rotateSpeed;
+        yRotateMove = Input.GetAxis("Mouse X") * rotateSpeed;
     }
 
     void Move()
     {
         transform.Translate(horizontalMove * movementSpeed, 0, verticalMove * movementSpeed);
+        if (horizontalMove != 0 || verticalMove != 0) animator.SetBool("isSwimming", true);
+        else animator.SetBool("isSwimming", false);
     }
 
     void Attack()
@@ -49,6 +61,7 @@ public class Player : MonoBehaviour
         if (isAttack && isAttackReady)
         {
             isAttackReady = false;
+            animator.SetTrigger("doAttack");
             Collider[] hit = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), attackRange);
             foreach (var hitObject in hit)
             {
