@@ -14,11 +14,13 @@ public class UnitChaseState : UnitState
     {
         base.UpdateState();
         movement.SetTargetPosition(controller.Target.position);
+        controller.Ainmator.SetMove(!movement.IsArrived);
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        controller.Ainmator.SetMove(true);
         movement.StopImmediately();
     }
 }

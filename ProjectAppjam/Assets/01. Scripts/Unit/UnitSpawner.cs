@@ -26,6 +26,6 @@ public class UnitSpawner : MonoBehaviour
         Vector3 position = playerTrm.position + randOffset;
 
         int randIndex = Random.Range(0, units.Count);
-        Instantiate(units[randIndex], position, Quaternion.identity);
+        Instantiate(units[randIndex], position, Quaternion.identity).Target = playerTrm;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UnitAttackState : UnitState
@@ -18,6 +19,14 @@ public class UnitAttackState : UnitState
     {
         base.EnterState();
         lastAttackTime = Time.time - attackDelay * 0.5f;
+        controller.Ainmator.SetMove(false);
+        controller.Ainmator.OnAnimationEndEvent += HandleAnimationEnd;
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        controller.Ainmator.OnAnimationEndEvent -= HandleAnimationEnd;        
     }
 
     public override void UpdateState()
@@ -28,6 +37,12 @@ public class UnitAttackState : UnitState
             return;
 
         lastAttackTime = Time.time;
+        controller.Ainmator.SetAttack(true);
+    }
+
+    private void HandleAnimationEnd()
+    {
         attack.ActiveAttack();
+        controller.Ainmator.SetAttack(false);
     }
 }

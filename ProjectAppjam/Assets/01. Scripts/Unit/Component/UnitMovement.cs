@@ -11,8 +11,9 @@ public class UnitMovement : UnitComponent
     private float rotateSpeed;
 
     private bool isArrived = false;
+    public bool IsArrived => isArrived;
 
-    private bool canMove = false;
+    private bool canMove = true;
 
     public override void Init(UnitController controller)
     {

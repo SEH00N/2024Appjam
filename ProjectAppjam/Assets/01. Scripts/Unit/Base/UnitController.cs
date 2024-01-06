@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class UnitController : MonoBehaviour
@@ -15,18 +16,22 @@ public class UnitController : MonoBehaviour
     public UnitStateType CurrentStateType { get; private set; }
     public UnitState CurrentState => states[CurrentStateType];
 
-    [field : SerializeField]
-    public Transform Target { get; private set; }
+    public Transform Target;
     public bool IsDead = false;
+
+    public UnitAnimator Ainmator {get; private set;}
 
     private void Awake()
     {
-        InitComponents();
-        InitStates();
+        Ainmator = transform.Find("Visual").GetComponent<UnitAnimator>();
+        
     }
 
     private void Start()
     {
+        InitComponents();
+        InitStates();
+
         ChangeState(UnitStateType.Idle);
     }
 
