@@ -32,10 +32,14 @@ public class UnitHealth : UnitComponent, IDamageable
 
     private void OnDie(GameObject performer)
     {
-        if(performer != null) // 플레이어가 직접 죽였을 때만 삼켜지기
-            IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
-
         IngameManager.Instance.PlayerStat.GetXP(10);
-        Destroy(gameObject);
+
+        if(performer != null) // 플레이어가 직접 죽였을 때만 삼켜지기
+        {
+            IngameManager.Instance.PlayerSkill.StoreProjectile(controller.UnitData.projectile);
+            Destroy(gameObject);
+        }
+        else
+            Destroy(gameObject, 1f);
     }
 }

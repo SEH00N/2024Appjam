@@ -14,5 +14,6 @@ public class LevelUpCard : MonoBehaviour
         PlayerStat stat = IngameManager.Instance.PlayerStat;
         cardStats.ForEach(s => stat.Stat.IncreaseStat(s.type, s.value));
         OnSelectedEvent?.Invoke(stat);
+        AudioManager.Instance.PlayAudio("ButtonSound1", GameManager.Instance.Aud, true);
     }
 }

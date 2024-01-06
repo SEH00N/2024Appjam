@@ -7,6 +7,8 @@ public abstract class Projectile : MonoBehaviour
     public Sprite Sprite;
     protected Rigidbody rb;
 
+    public LayerMask targetLayer;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

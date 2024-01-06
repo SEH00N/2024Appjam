@@ -30,12 +30,14 @@ public class Player : MonoBehaviour
 
     Rigidbody rigidbody;
     private PlayerAnimator animator;    
+    private PlayerHealth health;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
         stat = GetComponent<PlayerStat>();
         animator = transform.Find("Visual").GetComponent<PlayerAnimator>();
+        health = GetComponent<PlayerHealth>();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -86,7 +88,7 @@ public class Player : MonoBehaviour
                 onAttacking = false;
                 animator.SetAttack(false);
              
-                Collider[] hit = Physics.OverlapSphere(attackPosition.position, attackRange);
+                Collider[] hit = Physics.OverlapSphere(attackPosition.position, attackRange, targetLayer);
                 foreach (var hitObject in hit)
                 {
                     if (hitObject.gameObject.GetComponent<IDamageable>() is null) continue;

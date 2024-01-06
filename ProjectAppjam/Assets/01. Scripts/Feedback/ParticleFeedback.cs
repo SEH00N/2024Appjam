@@ -10,6 +10,7 @@ public class ParticleFeedback : FeedbackBase
     {
         ParticleSystem instance = Instantiate(prefab, trm.position, Quaternion.identity);
         instance.Play();
+        AudioManager.Instance.PlayAudio("HitSound", GameManager.Instance.Aud, true);
     }
 
     public override void FinishFeedback()

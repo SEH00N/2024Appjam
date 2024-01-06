@@ -7,6 +7,12 @@ public class PlayerSkill : MonoBehaviour
     [SerializeField] Transform firePos;
     [SerializeField] Image fishImage;
     private Queue<Projectile> projectiles = new Queue<Projectile>();
+    private AudioSource aud;
+
+    private void Awake()
+    {
+        aud = GetComponent<AudioSource>();
+    }
 
     public void StoreProjectile(Projectile p)
     {
@@ -25,6 +31,8 @@ public class PlayerSkill : MonoBehaviour
         {
             if(projectiles.Count <= 0)
                 return;
+
+                AudioManager.Instance.PlayAudio("ArrowSound", aud, true);
 
             Projectile projectile = Instantiate(projectiles.Dequeue(), firePos.position, Quaternion.identity);
             projectile.SetDirection(CameraManager.Instance.MainCam.transform.forward);

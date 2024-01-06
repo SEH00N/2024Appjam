@@ -334,6 +334,9 @@ MonoBehaviour:
     type: 3}
   speed: 40
   Sprite: {fileID: 21300000, guid: a2b2aaba6b852fe4d85d385e6c3d875e, type: 3}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &-7686987878623278935
 Rigidbody:
   m_ObjectHideFlags: 0

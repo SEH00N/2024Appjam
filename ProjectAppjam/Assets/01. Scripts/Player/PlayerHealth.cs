@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private PlayerStat stat;
 
+    [SerializeField] HPUIPanel panel;
+
     public bool IsDead;
 
     private void Awake()
@@ -20,6 +22,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Start()
     {
         currentHP = stat.Stat.GetStat(StatType.MaxHP).GetValue();
+        panel.SetHP(currentHP, currentHP);
     }
 
     public void OnDamaged(float damage = 0, GameObject performer = null, Vector3 point = default)
@@ -28,6 +31,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             return;
 
         currentHP -= damage;
+        Debug.Log(currentHP);
         OnDamagedEvent?.Invoke(performer, point);
 
         if (currentHP <= 0f)
@@ -36,6 +40,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             OnDie(performer);
             IsDead = true;
         }
+
+        panel.SetHP(currentHP, stat.Stat.GetStat(StatType.MaxHP).GetValue());
     }
 
     public void Heal(float hp)
@@ -45,5 +51,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void OnDie(GameObject performer)
     {
+        // PlayerAnimator player = transform.Find("Visual").GetComponent<PlayerAnimator>();
+        // player.SetDead(true);
+
+        // Destroy(GetComponent<Player>());
+        // Destroy(GetComponent<Rigidbody>());
+        // Destroy(GetComponent<Collider>());
     }
 }

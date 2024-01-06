@@ -5,12 +5,15 @@ public class TurtleProjectile : Projectile
 {
     protected override void OnCollision(Collision other)
     {
-        other.gameObject.GetComponent<IDamageable>().OnDamaged(30, other.gameObject, Vector3.zero);
+        if (1 << other.gameObject.layer != targetLayer)
+            return;
+
+        other.gameObject.GetComponent<IDamageable>()?.OnDamaged(1000, null, Vector3.zero);
     }
 
     IEnumerator AttackTimeCheck()
     {
         yield return new WaitForSeconds(2f);
-        GetComponent<Collider>().GetComponent<UnitMovement>().SetMoveable(true);
+        GetComponent<Collider>().GetComponent<UnitMovement>()?.SetMoveable(true);
     }
 }

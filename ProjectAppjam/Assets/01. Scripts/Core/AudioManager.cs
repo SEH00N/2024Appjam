@@ -10,7 +10,6 @@ public class AudioManager : MonoBehaviour
     private const float MUTE_VOLUME = -80;
 
     private Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
-    [SerializeField] private AudioMixer audioMixer = null;
     [SerializeField] private AudioAssetsSO audioAssetsSO = null;
 
     private void Awake()
@@ -38,14 +37,6 @@ public class AudioManager : MonoBehaviour
             player.clip = clips[clipName];
             player.Play();
         }
-    }
-
-    public void SetVolume(AudioType type, float percentage)
-    {
-        if(percentage == 0f)
-            audioMixer.SetFloat(type.ToString(), MUTE_VOLUME);
-        else
-            audioMixer.SetFloat(type.ToString(), Mathf.Lerp(MIN_VOLUME, MAX_VOLUME, percentage));
     }
 
     private void RegisterAudio(AudioClip clip)

@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public AudioSource Aud;
+
     private void Awake()
     {
         if(instance != null)
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
             DestroyImmediate(gameObject);
             return;
         }
+
+        Aud = GetComponent<AudioSource>();
 
         DontDestroyOnLoad(gameObject);
         instance = this;

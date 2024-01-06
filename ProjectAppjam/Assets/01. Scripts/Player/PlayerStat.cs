@@ -11,6 +11,8 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] XPTableSO xpTable;
     public UnityEvent<int> OnLevelUpEvent;
 
+    [SerializeField] XPUIPanel xpPanel;
+
     private int currentLevel = 1;
     private float xp;
 
@@ -19,6 +21,11 @@ public class PlayerStat : MonoBehaviour
         Stat = ScriptableObject.Instantiate(Stat);
         Stat.Init();
         Stat.SetOwner(this);
+    }
+
+    private void Start()
+    {
+        xpPanel.SetXP(xp, xpTable.table[currentLevel]);
     }
 
     public void GetXP(float amount)
@@ -34,6 +41,8 @@ public class PlayerStat : MonoBehaviour
 
             xp -= xpTable.table[currentLevel - 1];
         }
+
+        xpPanel.SetXP(xp, xpTable.table[currentLevel]);
     }
 
     private IEnumerator DelayCoroutine(float delay, Action callback)

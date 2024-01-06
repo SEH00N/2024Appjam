@@ -6,6 +6,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private readonly int IsMoveHash = Animator.StringToHash("IsMove");
     private readonly int IsAttackHash = Animator.StringToHash("IsAttack");
+    private readonly int IsDeadHash = Animator.StringToHash("IsDead");
 
     private void Awake()
     {
@@ -20,5 +21,10 @@ public class PlayerAnimator : MonoBehaviour
     public void SetAttack(bool value)
     {
         animator.SetBool(IsAttackHash, value);
+    }
+
+    public void SetDead(bool value)
+    {
+        animator.SetBool(IsDeadHash, value);
     }
 }
