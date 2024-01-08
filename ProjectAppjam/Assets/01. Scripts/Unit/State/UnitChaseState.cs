@@ -7,6 +7,7 @@ public class UnitChaseState : UnitState
     public override void Init(UnitController controller, UnitStateType stateType)
     {
         base.Init(controller, stateType);
+        controller.Ainmator.SetMove(true);
         movement = controller.GetUnitComponent<UnitMovement>(UnitComponentType.Movement);
     }
 
@@ -20,7 +21,7 @@ public class UnitChaseState : UnitState
     public override void ExitState()
     {
         base.ExitState();
-        controller.Ainmator.SetMove(true);
+        controller.Ainmator.SetMove(false);
         movement.StopImmediately();
     }
 }

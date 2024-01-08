@@ -37,6 +37,7 @@ public class UnitAttackState : UnitState
             return;
 
         lastAttackTime = Time.time;
+        controller.Ainmator.SetMove(false);
         controller.Ainmator.SetAttack(true);
     }
 

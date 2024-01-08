@@ -11,7 +11,7 @@ public class UnitTurtleAttack : UnitAttack
         {
             if (attackObj.CompareTag("Player"))
             {
-                attackObj.GetComponent<IDamageable>().OnDamaged(30, attackObj.gameObject, Vector3.zero);
+                attackObj.GetComponent<IDamageable>().OnDamaged(10, attackObj.gameObject, Vector3.zero);
             }
         }
     }

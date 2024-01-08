@@ -37,7 +37,7 @@ public class UnitAnimator : UnitComponent
         animator.SetBool(IsHitHash, value);
     }
 
-    private void OnAnimationEnd()
+    public void OnAnimationEnd()
     {
         OnAnimationEndEvent?.Invoke();
     }

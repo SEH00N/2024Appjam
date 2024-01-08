@@ -9,14 +9,15 @@ public class UnitJellyfishAttack : UnitAttack
     public override void ActiveAttack()
     {
         Collider[] attack = Physics.OverlapSphere(new Vector3(transform.position.x,transform.position.y,transform.position.z), 3f, targetLayer);
-        Instantiate(particlePrefab, transform.position, Quaternion.identity).Play();
+        ParticleSystem instance = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        instance.Play();
+        Destroy(instance, 1f);
 
         foreach(var attackObj in attack)
         {
             collider = attackObj;
             attackObj.GetComponent<UnitMovement>().SetMoveable(false);
-            attackObj.GetComponent<IDamageable>().OnDamaged(0, attackObj.gameObject, Vector3.zero);
-            Instantiate(particlePrefab, attackObj.transform.position, Quaternion.identity).Play();
+            attackObj.GetComponent<IDamageable>().OnDamaged(10, attackObj.gameObject, Vector3.zero);
 
             StartCoroutine("AttackTimeCheck");
         }

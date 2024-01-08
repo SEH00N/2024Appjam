@@ -11,7 +11,7 @@ public class UnitSalmonAttack : UnitAttack
         {
             attackObj.GetComponent<UnitMovement>().SetMoveable(false);
             GetComponent<Rigidbody>().AddForce(transform.forward * -10);
-            attackObj.GetComponent<IDamageable>().OnDamaged(0, attackObj.gameObject, Vector3.zero);
+            attackObj.GetComponent<IDamageable>().OnDamaged(10, attackObj.gameObject, Vector3.zero);
             attackObj.GetComponent<UnitMovement>().SetMoveable(true);
         }
     }

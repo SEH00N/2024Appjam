@@ -11,7 +11,7 @@ public class UnitTunaAttack : UnitAttack
         {
             if (attackObj.CompareTag("Player"))
             {
-                attackObj.GetComponent<IDamageable>().OnDamaged(20, attackObj.gameObject, Vector3.zero);
+                attackObj.GetComponent<IDamageable>().OnDamaged(10, attackObj.gameObject, Vector3.zero);
                 StartCoroutine(Bleeding(attackObj));
                 StartCoroutine(Bleeding(attackObj));
                 StartCoroutine(Bleeding(attackObj));
